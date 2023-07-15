@@ -1,6 +1,7 @@
 import express from 'express'
-import { UserRoutes } from '../modules/user/user.route'
-import { AcademicSemesterRoutes } from '../modules/academicSemester/academicSemester.route'
+import {  UserRoutes } from '../modules/user/user.route'
+import { BookesRoutes } from '../modules/book/book.route'
+
 
 const router = express.Router()
 
@@ -10,8 +11,8 @@ const moduleRoutes = [
     route: UserRoutes,
   },
   {
-    path: '/academic-semesters',
-    route: AcademicSemesterRoutes,
+    path: '/books',
+    route: BookesRoutes,
   },
 ]
 moduleRoutes.forEach(route => router.use(route.path, route.route))

@@ -1,20 +1,20 @@
-import config from '../../../config'
 import { IUser } from './user.interface'
 import { User } from './user.model'
-import { generateUser } from './user.utils'
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
-  const id = await generateUser()
-  user.id = id
-  if(!user.password){
-    user.password = config.defult_user_password as string
-  }
   const createUser = await User.create(user)
-  // if (!createUser) {
-  //   throw new Error('Failed to create user !')
-  // }
   return createUser
 }
- export default {
-    createUser
- }
+
+const loginFromDB = async (reqBody: IUser): Promise<void> => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user: any = await User.aggregate([
+    { $match: reqBody },
+    { $project: { _id: 0, email: 1, username: 1, phone: 1, image: 1 , role:1} },
+  ])
+  return user
+}
+export default {
+  createUser,
+  loginFromDB,
+}
