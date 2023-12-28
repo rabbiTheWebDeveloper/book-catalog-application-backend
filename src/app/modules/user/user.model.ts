@@ -1,39 +1,18 @@
-import { Schema, Model, model } from 'mongoose'
-import { IUser } from './user.interface'
-
-type UserModel = Model<IUser, Record<string, unknown>>
-const userSchema = new Schema<IUser>(
-  {
-    username: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      unique:true,
-      required: true,
-    },
-    phone: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
+import { IUser } from "./user.interface";
+import mongoose, { Schema } from "mongoose";
+const DataSchema= new Schema<IUser>({
+    email:{type:String,unique:true},
+    name:{type:String ,required:true},
     role: {
       type: String,
-      enum: ['user', 'admin'],
-      default: 'user',
+      enum: ["user", "admin" ,"moderator"],
+      required : true
     },
-    password: {
-      type: String,
-      required: true,
-    },
-  },
-  {
+    mobile:{type:String},
+    password:{type:String},
+    photo:{type:String ,default: "https://i.ibb.co/7KGjCY4/download-removebg-preview.png"}
+}, {
     timestamps: true,
-    versionKey: false,
-  }
-)
-export const User = model<IUser, UserModel>('User', userSchema)
+    versionKey:false
+  } );
+export const UsersModel=mongoose.model<IUser>('users',DataSchema);

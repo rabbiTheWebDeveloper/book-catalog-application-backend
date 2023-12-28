@@ -1,8 +1,8 @@
-export type IUser = {
-  username: string
-  email: string
-  image: string
-  phone: string
-  role: string
-  password: string
-}
+export interface IUser extends Document {
+    name: string;
+    role:string;
+    email: string;
+    mobile: string;
+    password: string;
+    photo: string
+  }
