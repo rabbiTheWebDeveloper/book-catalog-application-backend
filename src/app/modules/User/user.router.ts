@@ -5,10 +5,10 @@ import { UserValidation } from "./user.validation";
 
 const router:Router = Router();
 
-router.post("/registration" ,
+router.post("/signup" ,
 validateRequest(UserValidation.createUserZodSchema),
 registration);
-router.post("/login",login);
-router.post("/user-update/:id",userUpdate);
+router.post("/signin",login);
+// router.post("/user-update/:id",userUpdate);
 
 export default  router;

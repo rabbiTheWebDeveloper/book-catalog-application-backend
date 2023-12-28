@@ -8,7 +8,7 @@ const router = express.Router();
 const moduleRoutes = [
   // ... routes
   {
-    path: "/offer",
+    path: "/auth",
     route: offerRoutes,
   },
   {

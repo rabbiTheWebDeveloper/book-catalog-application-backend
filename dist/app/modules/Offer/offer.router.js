@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.offerRoutes = void 0;
+const express_1 = require("express");
+const offer_controller_1 = require("./offer.controller");
+const AuthVerifyMiddleware_1 = require("../../middleware/AuthVerifyMiddleware");
+const router = (0, express_1.Router)();
+router.get("/", offer_controller_1.OfferController.getAllFromDB);
+router.get("/:id", offer_controller_1.OfferController.getByIdFromDB);
+router.post("/", AuthVerifyMiddleware_1.auth, offer_controller_1.OfferController.insertIntoDB);
+router.patch("/:id", AuthVerifyMiddleware_1.auth, offer_controller_1.OfferController.updateOneInDB);
+router.delete("/:id", AuthVerifyMiddleware_1.auth, offer_controller_1.OfferController.deleteByIdFromDB);
+exports.offerRoutes = router;

@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.leadRoutes = void 0;
+const express_1 = require("express");
+const lead_controller_1 = require("./lead.controller");
+const AuthVerifyMiddleware_1 = require("../../middleware/AuthVerifyMiddleware");
+const router = (0, express_1.Router)();
+router.get("/", lead_controller_1.LeadController.getAllFromDB);
+router.get("/recent", lead_controller_1.LeadController.getRecentFromDB);
+router.get("/:id", lead_controller_1.LeadController.getByIdFromDB);
+router.post("/", AuthVerifyMiddleware_1.auth, lead_controller_1.LeadController.insertIntoDB);
+router.patch("/:id", AuthVerifyMiddleware_1.auth, lead_controller_1.LeadController.updateOneInDB);
+router.delete("/:id", AuthVerifyMiddleware_1.auth, lead_controller_1.LeadController.deleteByIdFromDB);
+exports.leadRoutes = router;
