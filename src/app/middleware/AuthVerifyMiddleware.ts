@@ -7,8 +7,8 @@ export const auth =(req:Request,res:Response,next:NextFunction)=>{
             res.status(401).json({status:"unauthorized"})
         }
         else {
-            let email=decoded['data'];
-            req.headers.email=email
+            let userId=decoded['data'];
+            req.headers.id=userId
             next();
         }
     })

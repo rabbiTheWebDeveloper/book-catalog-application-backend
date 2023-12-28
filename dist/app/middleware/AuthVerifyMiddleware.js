@@ -12,8 +12,8 @@ const auth = (req, res, next) => {
             res.status(401).json({ status: "unauthorized" });
         }
         else {
-            let email = decoded['data'];
-            req.headers.email = email;
+            let userId = decoded['data'];
+            req.headers.id = userId;
             next();
         }
     });

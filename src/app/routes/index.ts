@@ -1,19 +1,20 @@
 import express from "express";
-import { offerRoutes } from "../modules/Offer/offer.router";
 import { joinRoutes } from "../modules/Join/join.router";
 import { mainRoutes } from "../modules/Main/main.router";
 import { leadRoutes } from "../modules/Lead/lead.router";
+import { userRoutes } from "../modules/User/user.router";
+import { BookesRoutes } from "../modules/book/book.route";
 const router = express.Router();
 
 const moduleRoutes = [
   // ... routes
   {
     path: "/auth",
-    route: offerRoutes,
+    route: userRoutes,
   },
   {
-    path: "/join",
-    route: joinRoutes,
+    path: "/books",
+    route: BookesRoutes,
   },
   {
     path: "/main",

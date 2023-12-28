@@ -4,20 +4,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const offer_router_1 = require("../modules/Offer/offer.router");
-const join_router_1 = require("../modules/Join/join.router");
 const main_router_1 = require("../modules/Main/main.router");
 const lead_router_1 = require("../modules/Lead/lead.router");
+const user_router_1 = require("../modules/User/user.router");
+const book_route_1 = require("../modules/book/book.route");
 const router = express_1.default.Router();
 const moduleRoutes = [
     // ... routes
     {
         path: "/auth",
-        route: offer_router_1.offerRoutes,
+        route: user_router_1.userRoutes,
     },
     {
-        path: "/join",
-        route: join_router_1.joinRoutes,
+        path: "/books",
+        route: book_route_1.BookesRoutes,
     },
     {
         path: "/main",

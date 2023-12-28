@@ -6,6 +6,7 @@ const DataSchema= new Schema<IUser>({
     role: {
       type: String,
       enum: ["user", "admin" ,"moderator"],
+      default: "user",
       required : true
     },
     mobile:{type:String},

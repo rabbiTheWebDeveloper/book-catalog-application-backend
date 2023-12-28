@@ -28,7 +28,7 @@ exports.login = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, 
     if ((data === null || data === void 0 ? void 0 : data.length) > 0) {
         let Payload = {
             exp: Math.floor(Date.now() / 1000) + 50 * 24 * 60 * 60,
-            data: data[0]["email"],
+            data: data[0]["_id"],
         };
         let token = jsonwebtoken_1.default.sign(Payload, "SecretKey123456789");
         res.status(200).json({ status: "success", token: token, data: data[0] });

@@ -21,7 +21,7 @@ export const login = catchAsync(
     if (data?.length > 0) {
       let Payload = {
         exp: Math.floor(Date.now() / 1000) + 50 * 24 * 60 * 60,
-        data: data[0]["email"],
+        data: data[0]["_id"],
       };
 
       let token = jwt.sign(Payload, "SecretKey123456789");

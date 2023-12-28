@@ -11,4 +11,4 @@ registration);
 router.post("/signin",login);
 // router.post("/user-update/:id",userUpdate);
 
-export default  router;
+export  const userRoutes = router

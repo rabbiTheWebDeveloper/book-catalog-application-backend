@@ -31,6 +31,7 @@ const DataSchema = new mongoose_1.Schema({
     role: {
         type: String,
         enum: ["user", "admin", "moderator"],
+        default: "user",
         required: true
     },
     mobile: { type: String },
