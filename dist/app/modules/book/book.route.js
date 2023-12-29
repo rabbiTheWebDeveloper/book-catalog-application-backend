@@ -11,4 +11,7 @@ const router = express_1.default.Router();
 router.get("/", book_controller_1.BooksController.getAllFromDB);
 router.get("/:id", book_controller_1.BooksController.getByIdFromDB);
 router.post("/", AuthVerifyMiddleware_1.auth, book_controller_1.BooksController.insertIntoDB);
+router.post("/review/:id", AuthVerifyMiddleware_1.auth, book_controller_1.BooksController.insertReviewFromDB);
+router.patch("/:id", AuthVerifyMiddleware_1.auth, book_controller_1.BooksController.updateOneInDB);
+router.delete("/:id", AuthVerifyMiddleware_1.auth, book_controller_1.BooksController.deleteByIdFromDB);
 exports.BookesRoutes = router;
