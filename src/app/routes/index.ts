@@ -1,13 +1,11 @@
 import express from "express";
-import { joinRoutes } from "../modules/Join/join.router";
-import { mainRoutes } from "../modules/Main/main.router";
-import { leadRoutes } from "../modules/Lead/lead.router";
 import { userRoutes } from "../modules/User/user.router";
 import { BookesRoutes } from "../modules/book/book.route";
+import { WishRoutes } from "../modules/wish-list/wish.route";
+import { ReadingRoutes } from "../modules/Reading/reading.route";
 const router = express.Router();
 
 const moduleRoutes = [
-  // ... routes
   {
     path: "/auth",
     route: userRoutes,
@@ -17,13 +15,14 @@ const moduleRoutes = [
     route: BookesRoutes,
   },
   {
-    path: "/main",
-    route: mainRoutes,
+    path: "/wish",
+    route: WishRoutes,
   },
   {
-    path: "/leads",
-    route: leadRoutes,
+    path: "/reading",
+    route: ReadingRoutes,
   },
+  
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));
